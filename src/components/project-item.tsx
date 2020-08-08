@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import { animated } from "react-spring"
 import { ChildImageSharp } from "../types"
 
-type Props = {
+type ProjectItemProps = {
   node: {
     color: string
     title: string
@@ -17,7 +17,7 @@ type Props = {
   style: any
 }
 
-const ProjectItem = ({ node, style }: Props) => (
+const ProjectItem = ({ node, style }: ProjectItemProps) => (
   <animated.div
     sx={{
       position: `relative`,
@@ -92,18 +92,17 @@ const ProjectItem = ({ node, style }: Props) => (
         />
         <div
           sx={{
-            backgroundColor: `black`,
+            backgroundColor: node.color,
             height: `100%`,
             left: 0,
-            opacity: 0.6,
             position: `absolute`,
             top: 0,
             width: `100%`,
             zIndex: -2,
           }}
         />
-        <div sx={{ fontSize: 1, fontWeight: `bold` }}>{node.client}</div>
-        <div sx={{ fontSize: 1 }}>{node.service}</div>
+        <div sx={{ fontSize: 5, fontWeight: `bold` }}>{node.client}</div>
+        <div sx={{ fontSize: 2 }}>{node.service}</div>
       </Link>
     </div>
   </animated.div>

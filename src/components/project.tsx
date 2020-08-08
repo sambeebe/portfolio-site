@@ -1,13 +1,14 @@
 /** @jsx jsx */
 import { animated, useSpring, config } from "react-spring"
-import { Container, Styled, jsx, Flex } from "theme-ui"
+import { Container, jsx, Flex, Heading } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "./layout"
 import SEO from "./seo"
 import { ChildImageSharp } from "../types"
 import Hero from "./hero"
+import ProjectInfo from "./project-info"
 
-type Props = {
+type ProjectProps = {
   data: {
     project: {
       body: string
@@ -23,36 +24,7 @@ type Props = {
   }
 }
 
-type ItemProps = {
-  name: string
-  content: string
-}
-
-const Item = ({ name, content }: ItemProps) => (
-  <Flex
-    sx={{
-      flexDirection: `column`,
-      "&:not(:last-of-type)": {
-        mr: 5,
-      },
-      mb: 2,
-    }}
-  >
-    <div
-      sx={{
-        textTransform: `uppercase`,
-        color: `primary`,
-        letterSpacing: `wider`,
-        fontWeight: `semibold`,
-      }}
-    >
-      {name}
-    </div>
-    <div sx={{ fontSize: 2 }}>{content}</div>
-  </Flex>
-)
-
-const Project = ({ data: { project } }: Props) => {
+const Project = ({ data: { project } }: ProjectProps) => {
   const titleProps = useSpring({
     config: config.slow,
     from: { opacity: 0, transform: `translate3d(0, -30px, 0)` },
@@ -89,14 +61,12 @@ const Project = ({ data: { project } }: Props) => {
           }}
         >
           <animated.div style={titleProps}>
-            <Styled.h1>{project.title}</Styled.h1>
+            <Heading as="h1" variant="styles.h1">
+              {project.title}
+            </Heading>
           </animated.div>
           <animated.div style={infoProps}>
-            <Flex sx={{ mt: 4, mb: [2, 4], flexWrap: `wrap` }}>
-              <Item name="Client" content={project.client} />
-              <Item name="Date" content={project.date} />
-              <Item name="Service" content={project.service} />
-            </Flex>
+            <ProjectInfo project={project} />
           </animated.div>
         </Flex>
       </Hero>

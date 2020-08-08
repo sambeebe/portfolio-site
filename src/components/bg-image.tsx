@@ -3,22 +3,21 @@ import React from "react"
 import { jsx, useColorMode, useThemeUI } from "theme-ui"
 import { rgba } from "polished"
 
-type Props = { children: React.ReactNode; color?: string; slim: boolean }
+type BGImageProps = { children: React.ReactNode; color?: string; slim: boolean }
 
-const BGImage = ({ children, color, slim }: Props) => {
+const BGImage = ({ children, color = ``, slim }: BGImageProps) => {
   const [colorMode] = useColorMode()
   const { theme } = useThemeUI()
 
-  const bg = colorMode === `light` ? theme.colors.background : theme.colors.modes.dark.background
+  const bg = colorMode === `light` ? theme!.colors!.background : theme!.colors!.modes!.dark.background
   const shade = rgba(bg, 0.4)
 
   return (
     <div
       sx={{
-        width: `0%`,
-        // height: slim ? [`400px`, `500px`] : [`500px`, `600px`, `700px`, `40vw`],
-        height: `0%`,
-        maxHeight: `0`,
+        width: `100%`,
+        height: slim ? [`400px`, `500px`] : [`500px`, `600px`, `700px`, `40vw`],
+        maxHeight: `1200px`,
         zIndex: 1,
         ".gatsby-image-wrapper": {
           position: `static !important`,
@@ -28,12 +27,12 @@ const BGImage = ({ children, color, slim }: Props) => {
             height: slim
               ? [`400px !important`, `500px !important`]
               : [`500px !important`, `600px !important`, `700px !important`, `40vw !important`],
-            maxHeight: `0px`,
+            maxHeight: `1200px`,
           },
         },
         "&:before": {
           content: `""`,
-          height: `0%`,
+          height: `100%`,
           left: 0,
           top: 0,
           position: `absolute`,
@@ -45,7 +44,7 @@ const BGImage = ({ children, color, slim }: Props) => {
         "&:after": {
           backfaceVisibility: `hidden`,
           content: `""`,
-          height: `0%`,
+          height: `100%`,
           left: 0,
           top: 0,
           position: `absolute`,

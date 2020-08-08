@@ -5,7 +5,7 @@ import Layout from "./layout"
 import { ChildImageSharp } from "../types"
 import ProjectItem from "./project-item"
 
-type Props = {
+type ProjectsProps = {
   projects: {
     color: string
     slug: string
@@ -16,7 +16,7 @@ type Props = {
   }[]
 }
 
-const Projects = ({ projects }: Props) => {
+const Projects = ({ projects }: ProjectsProps) => {
   const trail = useTrail(projects.length, {
     from: { height: `0%` },
     to: { height: `100%` },
@@ -60,7 +60,7 @@ const Projects = ({ projects }: Props) => {
     <Layout
       sx={{
         display: `grid`,
-        gridTemplateColumns: `repeat(auto-fit, minmax(175px, 1fr))`,
+        gridTemplateColumns: `repeat(auto-fit, minmax(280px, 1fr))`,
         width: `100%`,
       }}
     >
