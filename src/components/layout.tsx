@@ -47,7 +47,7 @@ const Layout = ({ children, className = `` }: LayoutProps) => {
       <Box as="main" variant="layout.main" className={className}>
         {children}
       </Box>
-      // <Footer />
+      
     </React.Fragment>
   )
 }
