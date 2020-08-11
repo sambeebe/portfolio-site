@@ -294,7 +294,9 @@ const Layout = ({ children, className = `` }: LayoutProps) => {
       <SEO />
       <App/>
       <Header meta={meta} nav={nav} />
-
+      <Box as="main" variant="layout.main" className={className}>
+        {children}
+      </Box>
 
     </React.Fragment>
   )
