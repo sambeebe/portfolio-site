@@ -29,10 +29,11 @@ const Header = ({ meta, nav }: HeaderProps) => {
       <Flex
         sx={{
           fontWeight: `bold`,
-          fontSize: 4,
+          fontSize: 3,
           flex: navEmpty ? 1 : [`1 0 100%`, 1],
           justifyContent: navEmpty ? `flex-start` : `center`,
           order: [1, 2],
+          zIndex: 1,
         }}
       >
         <TLink
@@ -58,7 +59,9 @@ const Header = ({ meta, nav }: HeaderProps) => {
               ml: 2,
             },
           },
-          justifyContent: `flex-end`,
+          justifyContent: navEmpty ? `flex-start` : `left`,
+
+        zIndex: 1,
           flex: 1,
           display: `flex`,
           order: 3,
