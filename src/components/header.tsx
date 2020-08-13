@@ -28,10 +28,10 @@ const Header = ({ meta, nav }: HeaderProps) => {
       {!navEmpty && <Navigation nav={nav} />}
       <Flex
         sx={{
-          fontWeight: `bold`,
+
           fontSize: 3,
           flex: navEmpty ? 1 : [`1 0 100%`, 1],
-          justifyContent: navEmpty ? `flex-start` : `center`,
+          justifyContent: navEmpty ? `flex-start` : `left`,
           order: [1, 2],
           zIndex: 1,
         }}
@@ -67,18 +67,11 @@ const Header = ({ meta, nav }: HeaderProps) => {
           order: 3,
         }}
       >
-        <SocialLinks />
-        <button
-          sx={{ variant: `buttons.toggle`, fontWeight: `semibold` }}
-          onClick={toggleColorMode}
-          type="button"
-          aria-label="Toggle dark mode"
-        >
-          {isDark ? `Light` : `Dark`}
-        </button>
+
+
       </div>
     </Flex>
   )
 }
-
+        // <SocialLinks />
 export default Header

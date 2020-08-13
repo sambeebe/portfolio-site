@@ -22,9 +22,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Emma - @lekoarts/gatsby-theme-emma`,
+        name: `sambee.be`,
         short_name: `sam`,
-        description: `Minimalistic bright portfolio with full-width grid and large images`,
+        description: ``,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#b83280`,
