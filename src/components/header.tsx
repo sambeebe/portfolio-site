@@ -42,34 +42,10 @@ const Header = ({ meta, nav }: HeaderProps) => {
           sx={{ color: `text`, ":hover": { color: `primary`, textDecoration: `none` } }}
           to="/"
         >
-          {meta.siteTitle}
+          Sam Beebe
         </TLink>
       </Flex>
-      <div
-        sx={{
-          a: {
-            fontSize: 4,
-            color: `text`,
-            display: `flex`,
-            alignItems: `center`,
-            "&:hover": {
-              color: `primary`,
-            },
-            "&:not(:first-of-type)": {
-              ml: 2,
-            },
-          },
-          justifyContent: navEmpty ? `flex-start` : `left`,
 
-        zIndex: 1,
-          flex: 1,
-          display: `flex`,
-          order: 3,
-        }}
-      >
-
-
-      </div>
     </Flex>
   )
 }

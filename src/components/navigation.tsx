@@ -1,36 +1,37 @@
 /** @jsx jsx */
-import { jsx, Link as TLink, Flex } from "theme-ui"
 import { Link } from "gatsby"
+import { jsx, Styled, Flex } from "theme-ui"
 
-type NavigationProps = {
+type Props = {
   nav: {
     title: string
     slug: string
   }[]
 }
 
-const Navigation = ({ nav }: NavigationProps) => (
+const Navigation = ({ nav }: Props) => (
   <Flex
     as="nav"
     sx={{
+
+
+      justifyContent: `flex-end`,
       flex: 1,
-      justifyContent: `flex-start`,
-      order: [2, 1],
-      "a:not(:last-of-type)": {
-        mr: 3,
-      },
+      display: `flex`,
+      order: 3,
+      zIndex: 1,
     }}
     aria-label="Primary Navigation"
   >
-    {nav.map((n) => (
-      <TLink
+    {nav.map(n => (
+      <Styled.a
         as={Link}
         sx={{ color: `text`, ":hover": { color: `primary`, textDecoration: `none` } }}
         key={n.slug}
         to={n.slug}
       >
         {n.title}
-      </TLink>
+      </Styled.a>
     ))}
   </Flex>
 )

@@ -21,7 +21,7 @@ const style = {
   position: `absolute`,
   width: "100%",
   height: "100%",
-  zIndex: 0,
+  zIndex: -1000,
   opacity:"1",
   // background: "white",
 };
