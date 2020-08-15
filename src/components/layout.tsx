@@ -2,7 +2,7 @@ import React from "react"
 import * as ReactDOM from "react-dom";
 import { useMousePosition } from "./useMousePosition";
 import { Global } from "@emotion/core"
-import { Box } from "theme-ui"
+import { Box, jsx, Container, Styled  } from "theme-ui"
 import useSiteMetadata from "../hooks/use-site-metadata"
 import useNavigation from "../hooks/use-navigation"
 import Footer from "./footer"
@@ -264,6 +264,7 @@ const Layout = ({ children, className = `` }: LayoutProps) => {
 
   return (
     <React.Fragment>
+
       <Global
         styles={(theme) => ({
           "*": {
@@ -294,6 +295,18 @@ const Layout = ({ children, className = `` }: LayoutProps) => {
       <SEO />
       <App/>
       <Header meta={meta} nav={nav} />
+      <Container>
+        <Styled.p>
+          Hi!{` `}
+          <span role="img" aria-label="Wave emoji">
+            👋
+          </span>
+          {` `}
+          <br />
+          I'm Sam. Thanks for checking out my portfolio.
+        </Styled.p>
+
+      </Container>
       <Box as="main" variant="layout.main" className={className}>
         {children}
       </Box>
