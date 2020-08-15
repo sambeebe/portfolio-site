@@ -35,41 +35,7 @@ const Project = ({ data: { project } }: ProjectProps) => {
 
   return (
     <Layout>
-      <SEO
-        title={project.title}
-        description={project.excerpt}
-        pathname={project.slug}
-        image={project.cover.childImageSharp.resize!.src}
-      >
-        <meta name="twitter:label1" value="Client" />
-        <meta name="twitter:label2" value="Date" />
-        <meta name="twitter:data1" value={project.client} />
-        <meta name="twitter:data2" value={project.date} />
-      </SEO>
-      <Hero image={project.cover.childImageSharp.fluid} color={project.color}>
-        <Flex
-          sx={{
-            position: `absolute`,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            maxWidth: `5xl`,
-            margin: `0 auto`,
-            padding: 4,
-            zIndex: 2,
-            flexDirection: `column`,
-          }}
-        >
-          <animated.div style={titleProps}>
-            <Heading as="h1" variant="styles.h1">
-              {project.title}
-            </Heading>
-          </animated.div>
-          <animated.div style={infoProps}>
-            <ProjectInfo project={project} />
-          </animated.div>
-        </Flex>
-      </Hero>
+
       <Container>
         <animated.div style={contentProps}>
           <MDXRenderer>{project.body}</MDXRenderer>
