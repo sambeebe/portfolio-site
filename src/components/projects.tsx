@@ -60,7 +60,7 @@ const Projects = ({ projects }: ProjectsProps) => {
     <Layout
       sx={{
         display: `grid`,
-        gridTemplateColumns: `repeat(6, minmax(150px, 1fr))`,
+        gridTemplateColumns: `repeat(6, minmax(15px, 1fr))`,
         width: `100%`,
       }}
     >
